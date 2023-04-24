@@ -1,0 +1,23 @@
+## From the tfsec docs and codebytes on GitHub
+# for TFsec
+## https://github.com/codebytes/secure-terraform-on-azure/blob/main/.tfsec/custom_tfchecks.yaml
+## They took it from the docs and modified it and I modified it as well
+## with modifications for AWS
+
+checks:
+- code: bucket-naming
+  description: every bucket should start with ca_
+  impact: consistent naming
+  resolution: start your buckets with ca_. Remember that all bucket names should be lowercase.
+  requiredTypes:
+  - resource
+  requiredLabels:
+  - aws-s3-bucket
+  severity: HIGH
+  matchSpec:
+      name: aws-s3-bucket
+      action: regexMatches
+      value: ^par-[a-z0-9]
+  errorMessage: S3-Bucket naming convention should start with ca_
+  relatedLinks:
+  - https://docs.aws.amazon.com/s3/index.html
