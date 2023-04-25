@@ -17,7 +17,7 @@ checks:
   matchSpec:
       name: aws-s3-bucket
       action: regexMatches
-      value: ^par-[a-z0-9]
+      value: ^ca_[a-z0-9]
   errorMessage: S3-Bucket naming convention should start with ca_
   relatedLinks:
   - https://docs.aws.amazon.com/s3/index.html
